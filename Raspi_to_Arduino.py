@@ -21,11 +21,12 @@ def blink(pin):
     time.sleep(1)  
     return
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11, GPIO.OUT)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17, GPIO.OUT)
 while True:
     
     read_ser=ser.readline()
     print(read_ser)
+    blink(17)
     if(read_ser=="Hello From Arduino!"):
-        blink(11)
+        blink(17)
